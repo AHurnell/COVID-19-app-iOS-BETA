@@ -33,17 +33,24 @@ proximity to individuals infected with the novel coronavirus.
 
 ### Setup
 
+1. Create a new directory named ".secret" in the "Sonar" directory
+
+2.
 ```sh
 cp Sonar/Environments/Sonar.xcconfig.sample .secret/Sonar.xcconfig
 ./bin/make-environment < Sonar/Environments/environment.json > .secret/Environment.swift
 ```
-
-- Fill in the `Environment.swift` file with the appropriate values from another
-  developer.
-- Get a copy of GoogleService-Info.plist from one of the other developers and
-  copy that into the `.secret` directory.
-- **If Xcode is open, restart Xcode.** Xcode does not handle configuration
+3. Fill in the `Environment.swift` file with the appropriate values from another developer. 
+4. Get a copy of GoogleService-Info.plist from one of the other developers and copy that into the `.secret` director
+5. **If Xcode is open, restart Xcode.** Xcode does not handle configuration
   files being changed out from under it gracefully.
+  
+  Steps 3 and 4 in the previous instructions are directed towards the NHSX developers working on this project. External developers looking to test the app will need to complete steps 1 and 2 in the prior instructions and then
+  1. Input UUID values into the 'Environment.swift' file
+  2. Generate their own 'GoogleService-Info.plist' file using firebase
+  3. Change the bundle identifier
+  4. Modify the code signing settings to their own details
+  4. 
 
 ### Notifications
 
